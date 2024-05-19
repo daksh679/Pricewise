@@ -83,7 +83,11 @@ export async function generateEmailBody(
 const transporter = nodemailer.createTransport({
   pool: true,
   service: 'hotmail',
+  tls: {
+        ciphers: "SSLv3",
+    },
   port: 587,
+  secure: false,
   auth: {
     user: 'dakshahuja35@outlook.com',
     pass: process.env.EMAIL_PASSWORD,
